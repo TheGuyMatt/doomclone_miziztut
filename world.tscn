@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://ue7rxvs6pvf8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_251je"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2ut84"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbeu3"]
+albedo_color = Color(0.008183, 1, 0.999209, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnw3t"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_76sc5"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ovgsx"]
+
+[sub_resource type="Sky" id="Sky_g2j82"]
+sky_material = SubResource("ProceduralSkyMaterial_ovgsx")
+
+[sub_resource type="Environment" id="Environment_77yrr"]
+background_mode = 2
+sky = SubResource("Sky_g2j82")
+
+[node name="world" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="ground" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(17.8008, 0, 0, 0, 1, 0, 0, 0, 14.0622, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_251je")
+mesh = SubResource("PlaneMesh_2ut84")
+skeleton = NodePath("../..")
+
+[node name="block" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, -3.51758, 0.915728, -3.06395)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="block2" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, -0.92231, 0.915728, 8.93078)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="block3" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, 7.71845, 0.915728, -2.43741)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="block4" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, 9.99429, 0.915728, 4.71799)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="block5" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, -10.8688, 0.915728, 4.71799)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="block6" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, -8.616, 0.915728, -7.37009)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="block7" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, 2.16965, 0.915728, -10.6783)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="block8" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.65618, 0, 0, 0, 3.07675, 0, 0, 0, 0.700283, 2.16965, 0.915728, 0.557953)
+material_override = SubResource("StandardMaterial3D_dbeu3")
+mesh = SubResource("BoxMesh_wnw3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/block8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/block8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_76sc5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 4, 2, 7)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_77yrr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.823681, -0.227672, 0.519341, 0, 0.915859, 0.4015, -0.567053, -0.330708, 0.754376, 21.7469, 12.6477, 20.6265)
